@@ -5,7 +5,7 @@
       <a-col flex="200px">
         <RouterLink to="/">
           <div class="header-left">
-            <img class="logo" src="@/assets/logo.png" alt="Logo" />
+            <img class="logo" src="@/assets/logo.png" alt="LBY Logo" />
             <h1 class="site-title">LBY 应用生成</h1>
           </div>
         </RouterLink>
@@ -44,6 +44,17 @@
         </div>
       </a-col>
     </a-row>
+    <a-modal v-model:open="aboutVisible" title="关于 LBY AI" :footer="null" width="480px">
+      <div class="about-content">
+        <div class="about-brand">
+          <img class="about-logo" src="@/assets/logo.png" alt="LBY Logo" />
+          <h2>LBY AI 零代码应用生成平台</h2>
+        </div>
+        <p>由 <strong>LBY</strong> 打造的一站式 AI 应用生成平台。</p>
+        <p>只需一句话描述，即可自动生成完整的网站应用，无需编写代码。</p>
+        <p class="about-version">Version 1.0 · Powered by LBY</p>
+      </div>
+    </a-modal>
   </a-layout-header>
 </template>
 
@@ -57,6 +68,7 @@ import { LogoutOutlined, HomeOutlined } from '@ant-design/icons-vue'
 
 const loginUserStore = useLoginUserStore()
 const router = useRouter()
+const aboutVisible = ref(false)
 // 当前选中菜单
 const selectedKeys = ref<string[]>(['/'])
 // 监听路由变化，更新当前选中菜单
@@ -110,6 +122,10 @@ const menuItems = computed<MenuProps['items']>(() => filterMenus(originItems))
 const handleMenuClick: MenuProps['onClick'] = (e) => {
   const key = e.key as string
   selectedKeys.value = [key]
+  if (key === 'about') {
+    aboutVisible.value = true
+    return
+  }
   // 跳转到对应页面
   if (key.startsWith('/')) {
     router.push(key)
@@ -156,5 +172,41 @@ const doLogout = async () => {
 
 .ant-menu-horizontal {
   border-bottom: none !important;
+}
+
+.about-content {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.about-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.about-logo {
+  width: 64px;
+  height: 64px;
+}
+
+.about-brand h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #1890ff;
+}
+
+.about-content p {
+  color: #666;
+  line-height: 1.8;
+  margin: 0 0 12px;
+}
+
+.about-version {
+  margin-top: 16px !important;
+  font-size: 13px;
+  color: #999;
 }
 </style>

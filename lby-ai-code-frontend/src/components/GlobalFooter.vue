@@ -2,14 +2,14 @@
   <a-layout-footer class="footer">
     <div class="footer-content">
       <p class="copyright">
-        LBY AI 零代码应用生成平台
+        © {{ currentYear }} LBY · LBY AI 零代码应用生成平台
       </p>
     </div>
   </a-layout-footer>
 </template>
 
 <script setup lang="ts">
-// 无需额外的响应式数据
+const currentYear = new Date().getFullYear()
 </script>
 
 <style scoped>

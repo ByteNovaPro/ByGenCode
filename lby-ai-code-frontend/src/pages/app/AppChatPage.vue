@@ -3,7 +3,7 @@
     <!-- 顶部栏 -->
     <div class="header-bar">
       <div class="header-left">
-        <h1 class="app-name">{{ appInfo?.appName || '网站生成器' }}</h1>
+        <h1 class="app-name">{{ appInfo?.appName || 'LBY 网站生成器' }}</h1>
         <a-tag v-if="appInfo?.codeGenType" color="blue" class="code-gen-type-tag">
           {{ formatCodeGenType(appInfo.codeGenType) }}
         </a-tag>
@@ -63,7 +63,7 @@
                 <MarkdownRenderer v-if="message.content" :content="message.content" />
                 <div v-if="message.loading" class="loading-indicator">
                   <a-spin size="small" />
-                  <span>AI 正在思考...</span>
+                  <span>LBY AI 正在思考...</span>
                 </div>
               </div>
             </div>

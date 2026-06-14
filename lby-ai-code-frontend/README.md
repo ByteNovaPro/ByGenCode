@@ -1,6 +1,6 @@
-# LBY AI 代码生成器 - 前端
+# LBY AI 零代码应用生成平台 - 前端
 
-Vue 3 + TypeScript + Ant Design Vue 前端项目。
+由 **LBY** 打造的 Vue 3 + TypeScript + Ant Design Vue 前端项目。
 
 ## 开发
 
